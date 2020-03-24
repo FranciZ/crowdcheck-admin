@@ -1,0 +1,25 @@
+<button class="btn btn-primary" (click)="onLogoutClick()">Log out</button>
+<div class="pagination-container pagination-container-top">
+  <pagination class="pagination-item" (pageChanged)="onPageChanged($event)" [itemsPerPage]="10" [totalItems]="resultCount"></pagination>
+</div>
+
+<table class="table table-striped">
+  <tbody>
+  <tr *ngFor="let item of items; let i = index;">
+    <td>
+      <div class="item-image" [style.background-image]="'url('+item.photos[0].url+')'"></div>
+    </td>
+    <td class="table-action-container">
+      {{item.createdAt | amTimeAgo}}
+    </td>
+    <td class="table-action-container">
+      <button type="button" class="btn btn-danger" (click)="onDeleteClick(item,i )">
+        Delete item
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="pagination-container">
+  <pagination class="pagination-item" (pageChanged)="onPageChanged($event)" [itemsPerPage]="10" [totalItems]="resultCount"></pagination>
+</div>
