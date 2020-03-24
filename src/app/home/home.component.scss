@@ -1,3 +1,11 @@
+.action-buttons {
+  margin: 10px;
+
+  button {
+    margin: 10px;
+  }
+}
+
 .item-image {
   width: 200px;
   height: 200px;
@@ -18,6 +26,6 @@
   display: inline-block;
 }
 
-.table-action-container{
+.table-action-container {
   vertical-align: middle;
 }

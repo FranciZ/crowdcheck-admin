@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   items: Array<IStoreHistoryItem> = [];
   resultCount = 0;
+  page = 1;
 
   constructor(private apiService: ApiService,
               private router: Router) {
@@ -26,6 +27,13 @@ export class HomeComponent implements OnInit {
   }
 
   onLogoutClick() {
+
+    const c = confirm('Si prepričan/a?');
+
+    if (!c) {
+      return;
+    }
+
     this.apiService.logOut();
     this.router.navigate(['login']);
   }
@@ -42,12 +50,13 @@ export class HomeComponent implements OnInit {
 
   onPageChanged(event) {
     console.log('Event: ', event);
+    this.page = event.page;
     this.fetchItems(event.page);
   }
 
   async onDeleteClick(item: IStoreHistoryItem, index) {
 
-    const c = confirm('So prepričan/a?');
+    const c = confirm('Si prepričan/a?');
 
     if (!c) {
       return;
